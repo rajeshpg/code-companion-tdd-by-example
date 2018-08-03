@@ -9,14 +9,14 @@ public class MoneyTest {
     @Test
     public void testMultiplication() {
         Money five = Money.dollar(5);
-        assertEquals(new Dollar(10), five.times(2));
-        assertEquals(new Dollar(15), five.times(3));
+        assertEquals(Money.dollar(10), five.times(2));
+        assertEquals(Money.dollar(15), five.times(3));
     }
 
     @Test
     public void testEquality() {
-        assertEquals(new Dollar(5), new Dollar(5));
-        assertNotEquals(new Dollar(5), new Dollar(6));
+        assertEquals(Money.dollar(5), Money.dollar(5));
+        assertNotEquals(Money.dollar(5), Money.dollar(6));
         assertEquals(new Franc(5), new Franc(5));
         assertNotEquals(new Franc(5), new Franc(6));
         assertNotEquals(new Franc(5), new Dollar(5));
