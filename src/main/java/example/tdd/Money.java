@@ -1,6 +1,6 @@
 package example.tdd;
 
-public class Money implements Expression{
+public class Money implements Expression {
     protected int amount;
     protected String currency;
 
@@ -9,19 +9,20 @@ public class Money implements Expression{
         this.currency = currency;
     }
 
-    public String currency(){
-        return currency;
-    }
-    public Money times(int multiplier){
-        return new Money(amount * multiplier, currency);
-    }
-
     public static Money dollar(int amount) {
-        return new Money(amount,"USD");
+        return new Money(amount, "USD");
     }
 
     public static Money franc(int amount) {
-        return new Money(amount,"CHF");
+        return new Money(amount, "CHF");
+    }
+
+    public String currency() {
+        return currency;
+    }
+
+    public Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
     }
 
     public boolean equals(Object object) {
@@ -33,11 +34,10 @@ public class Money implements Expression{
         return new Sum(this, addend);
     }
 
-    public Money reduce(Bank bank, String to){
-        int rate = (currency.equals("CHF") && to.equals("USD")) ? 2 : 1;
+    public Money reduce(Bank bank, String to) {
+        int rate = bank.rate(currency, to);
         return new Money(amount / rate, to);
     }
-
 
     @Override
     public String toString() {
