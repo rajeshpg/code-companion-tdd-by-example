@@ -2,8 +2,11 @@ package example.tdd;
 
 public abstract class Money {
     protected int amount;
+    protected String currency;
 
-    public abstract String currency();
+    public String currency(){
+        return currency;
+    }
     public abstract Money times(int multiplier);
 
     public static Money dollar(int amount) {
