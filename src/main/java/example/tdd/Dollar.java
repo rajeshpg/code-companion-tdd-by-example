@@ -2,11 +2,9 @@ package example.tdd;
 
 public class Dollar extends Money {
 
-    private String currency;
-
     public Dollar(int amount, String currency) {
         this.amount = amount;
-        this.currency = "USD";
+        this.currency = currency;
     }
 
     @Override
@@ -15,7 +13,7 @@ public class Dollar extends Money {
     }
 
     public Money times(int multiplier) {
-        return new Dollar(amount * multiplier, null);
+        return Money.dollar(amount * multiplier);
     }
 
 }
