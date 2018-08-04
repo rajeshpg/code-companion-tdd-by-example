@@ -96,7 +96,6 @@ public class MoneyTest {
         Expression sum = new Sum(fiveBucks, tenFrancs).times(2);
         Money result = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(20), result);
-
     }
 
 }

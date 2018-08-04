@@ -1,6 +1,6 @@
 package example.tdd;
 
-public class Sum implements Expression{
+public class Sum implements Expression {
     public Expression augend;
     public Expression addend;
 
@@ -18,5 +18,9 @@ public class Sum implements Expression{
     @Override
     public Expression plus(Expression addend) {
         return new Sum(this, addend);
+    }
+
+    public Expression times(int multiplier) {
+        return new Sum(augend.times(multiplier), addend.times(multiplier));
     }
 }
