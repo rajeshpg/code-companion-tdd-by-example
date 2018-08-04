@@ -1,6 +1,6 @@
 package example.tdd;
 
-public abstract class Money {
+public class Money {
     protected int amount;
     protected String currency;
 
@@ -12,7 +12,9 @@ public abstract class Money {
     public String currency(){
         return currency;
     }
-    public abstract Money times(int multiplier);
+    public Money times(int amount){
+        return null;
+    }
 
     public static Money dollar(int amount) {
         return new Dollar(amount,"USD");
